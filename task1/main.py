@@ -10,9 +10,11 @@ def total_salary(path):
     try:
         with open(current_dir / path, "r", encoding="UTF-8") as file:        
             salaries = [parse_salary(line) for line in file.read().splitlines()]
+    except FileNotFoundError:
+        print("File not found")
     except Exception:
-        print("Error occured")
-        return 0, 0
+        print("Unexpected error")
+    return 0, 0
     
     salary_sum = sum(salaries)
     avarage_salary = salary_sum / len(salaries)
