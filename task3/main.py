@@ -16,11 +16,11 @@ def tree(path, level=0):
             print(f"{Fore.YELLOW}{sub_indent}{filepath.name}")
 
 def main():
-    # if len(sys.argv) != 2:
-    #     print("Please, provide path")
-    #     return
-    path = Path("./task3/test_folder")
-    #path = Path(sys.argv[1])
+    if len(sys.argv) != 2:
+        print("Please, provide path")
+        return
+    
+    path = Path(sys.argv[1])
     if not path.exists():
         print(f"Path {path} does not exist")
         return
